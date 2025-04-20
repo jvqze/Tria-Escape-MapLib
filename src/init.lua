@@ -219,8 +219,8 @@ function MapLib:SetLiquidType(liquid: BasePart, liquidType: string, tweenDuratio
 			color = custom and SettingsHandler:GetValue(custom, "Color") or Color3.new()
 		end
 
-		TweenService:Create(liquid, TweenInfo.new(tweenDuration), { Color = color }):Play()
-		task.wait(stateDelay)
+		TweenService:Create(liquid, TweenInfo.new(tweenDuration or 1), { Color = color }):Play()
+		task.wait(stateDelay or 1)
 		SettingsHandler:SetValue(liquid, "Type", liquidType)
 	end)
 end
